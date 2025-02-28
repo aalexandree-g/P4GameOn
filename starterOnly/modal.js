@@ -20,4 +20,8 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-
+// Fermeture de la modale au clic sur la croix (X)
+const close = document.querySelector(".close")
+close.addEventListener("click", () => {
+  modalbg.style.display = "none"
+})
