@@ -20,6 +20,8 @@ modalBtn.forEach((btn) => {
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block"
+  // s'il y a déjà des messages d'erreur sous les champs, on les supprime
+  document.querySelectorAll(".erreur").forEach((msg) => msg.remove())
 }
 
 // fermeture de la modale au clic sur la croix (X)
