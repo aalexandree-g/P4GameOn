@@ -52,6 +52,8 @@ function verifierFormulaire(formUtilisateur) {
     // s'il y a déjà des messages d'erreur sous les champs, on les supprime
     document.querySelectorAll(".erreur").forEach((msg) => msg.remove())
 
+    let isValid = true
+
     // on va balayer chaque objet de formUtilisateur
     formUtilisateur.forEach((champ) => {
         if (
@@ -65,8 +67,21 @@ function verifierFormulaire(formUtilisateur) {
             (champ.id === "checkbox1" && !champ.valeur.checked)
         ) {
             afficherMessageErreur(champ.id, champ.msgErreur)
+            isValid = false
         }
     })
+
+    if (isValid) {
+        // s'il y a déjà un message de validation, on le supprime
+        document.querySelectorAll(".validation").forEach((msg) => msg.remove())
+        // on crée une balise <p> dans laquelle on insère le message de validation
+        let messageValidation = document.createElement("p")
+        messageValidation.classList.add("validation")
+        messageValidation.innerText = "Merci ! Votre réservation a été reçue."
+        // on insère la balise à la fin du formulaire
+        let elementForm = document.querySelector(".modal-body")
+        elementForm.appendChild(messageValidation)
+    }
 }
 
 
@@ -81,7 +96,5 @@ function afficherMessageErreur(champId, message) {
         // on insère la balise à la fin de chaque div de classe formData
         let elementParent = champ.closest(".formData")
         elementParent.appendChild(messageErreur)
-    } else {
-        console.log(`Erreur : aucun balise avec l'id ${champId} n'a été trouvée.`)
     }
 }
