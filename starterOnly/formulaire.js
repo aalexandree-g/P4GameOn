@@ -1,100 +1,72 @@
-const formulaire = document.querySelector("form")
-formulaire.addEventListener("submit", (event) => {
-    // on empêche le rechargement du formulaire
+import { checkForm } from './fonctions.js'
+
+// form fields
+const firstnameInput = document.getElementById("first")
+const lastnameInput = document.getElementById("last")
+const emailInput = document.getElementById("email")
+const birthdateInput = document.getElementById("birthdate")
+const quantityInput = document.getElementById("quantity")
+const conditionsCheckbox = document.getElementById("checkbox1")
+
+// regex
+const nameRegex = /^[a-zA-Z]{2,}(-[a-zA-Z]+)?$/
+const emailRegex = /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+$/
+const quantityRegex = /^[0-9]+$/
+
+// error messages
+const firstnameMessage = "Veuillez entrer 2 lettres ou plus pour le prénom."
+const lastnameMessage = "Veuillez entrer 2 caractères ou plus pour le nom."
+const emailMessage = "L'adresse email est incorrecte."
+const birthdateMessage = "Veuillez entrer votre date de naissance."
+const quantityMessage = "Veuillez entrer un nombre."
+const locationMessage = "Veuillez choisir une option."
+const conditionsMessage = "Veuillez accepter les termes et conditions."
+
+// check form when submit
+document.querySelector("form").addEventListener("submit", (event) => {
+    // block the form's reload
     event.preventDefault()
-    // on stocke les données renseignées dans formUtilisateur
-    let formUtilisateur = [
+    // put data into formUser
+    let formUser = [
         {
-            id : "first",       // champ du prénom
-            valeur : document.getElementById("first").value,
-            regle : /^[a-zA-Z]{2,}(-[a-zA-Z]+)?$/,
-            msgErreur : "Veuillez entrer 2 caractères ou plus pour le prénom."
+            id : "first",
+            input : firstnameInput,
+            regex : nameRegex,
+            msgError : firstnameMessage
         },
         {
-            id : "last",        // champ du nom
-            valeur : document.getElementById("last").value,
-            regle : /^[a-zA-Z]{2,}(-[a-zA-Z]+)?$/,
-            msgErreur : "Veuillez entrer 2 caractères ou plus pour le nom."
+            id : "last",
+            input : lastnameInput,
+            regex : nameRegex,
+            msgError : lastnameMessage
         },
         {
-            id : "email",       // champ de l'email
-            valeur : document.getElementById("email").value,
-            regle : /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+$/,
-            msgErreur : "L'adresse email est incorrecte."
+            id : "email",
+            input : emailInput,
+            regex : emailRegex,
+            msgError : emailMessage
         },
         {
-            id : "birthdate",   // champ de la date de naissance
-            valeur : document.getElementById("birthdate").value,
-            msgErreur : "Veuillez entrer votre date de naissance."
+            id : "birthdate",
+            input : birthdateInput,
+            msgError : birthdateMessage
         },
         {
-            id : "quantity",    // champ du nombre de concours
-            valeur : document.getElementById("quantity").value,
-            regle : /^[0-9]+$/,
-            msgErreur : "Veuillez entrer un nombre."
+            id : "quantity",
+            input : quantityInput,
+            regex : quantityRegex,
+            msgError : quantityMessage
         },
         {
-            id : "location1",   // choix de la ville de participation
-            valeur : document.querySelector('input[name="location"]:checked'),
-            msgErreur : "Veuillez choisir une option."
+            id : "location1",
+            input : document.querySelector("input[name='location']:checked"),
+            msgError : locationMessage
         },
         {
-            id : "checkbox1",   // checkbox des conditions générales
-            valeur : document.getElementById("checkbox1"),
-            msgErreur : "Veuillez accepter les termes et conditions."
+            id : "checkbox1",
+            input : conditionsCheckbox,
+            msgError : conditionsMessage
         }
     ]
-    verifierFormulaire(formUtilisateur)
+    checkForm(formUser)
 })
-
-
-function verifierFormulaire(formUtilisateur) {
-    // s'il y a déjà des messages d'erreur sous les champs, on les supprime
-    document.querySelectorAll(".erreur").forEach((msg) => msg.remove())
-
-    let isValid = true
-
-    // on va balayer chaque objet de formUtilisateur
-    formUtilisateur.forEach((champ) => {
-        if (
-            // pour le cas des champs avec règles
-            champ.regle && !champ.regle.test(champ.valeur) ||
-            // pour le cas de la date de naissance
-            (champ.id === "birthdate" && champ.valeur === "") ||
-            // pour le cas des boutons radio
-            (champ.id === "location1" && champ.valeur === null) ||
-            // pour le cas des conditions générales
-            (champ.id === "checkbox1" && !champ.valeur.checked)
-        ) {
-            afficherMessageErreur(champ.id, champ.msgErreur)
-            isValid = false
-        }
-    })
-
-    if (isValid) {
-        // s'il y a déjà un message de validation, on le supprime
-        document.querySelectorAll(".validation").forEach((msg) => msg.remove())
-        // on crée une balise <p> dans laquelle on insère le message de validation
-        let messageValidation = document.createElement("p")
-        messageValidation.classList.add("validation")
-        messageValidation.innerText = "Merci ! Votre réservation a été reçue."
-        // on insère la balise à la fin du formulaire
-        let elementForm = document.querySelector(".modal-body")
-        elementForm.appendChild(messageValidation)
-    }
-}
-
-
-// afficher le message d'erreur sous le champ concerné
-function afficherMessageErreur(champId, message) {
-    let champ = document.getElementById(champId)
-    if (champ) {
-        // on crée une balise <p> dans laquelle on insère le message d'erreur
-        let messageErreur = document.createElement("p")
-        messageErreur.classList.add("erreur")
-        messageErreur.innerText = message
-        // on insère la balise à la fin de chaque div de classe formData
-        let elementParent = champ.closest(".formData")
-        elementParent.appendChild(messageErreur)
-    }
-}

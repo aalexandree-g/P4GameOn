@@ -1,0 +1,42 @@
+{
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.colorCustomizations": {
+    // 🖥️ Fenêtre & Barre de titre
+    "titleBar.activeBackground": "#1E1E1E", // Fond de la barre de titre (fenêtre active)
+    "titleBar.inactiveBackground": "#2D2D2D", // Fond de la barre de titre (fenêtre inactive)
+    "titleBar.activeForeground": "#dcdcdc", // Texte de la barre de titre (actif)
+    "titleBar.inactiveForeground": "#919191", // Texte de la barre de titre (inactif)
+    "window.activeBorder": "#addbb6", // Bordure de la fenêtre active (optionnel)
+    "window.inactiveBorder": "#444444", // Bordure de la fenêtre inactive (optionnel)
+    // 📂 Barre latérale & Barre d'activités
+    "sideBar.background": "#1E1E1E", // Fond de la barre latérale (Explorateur de fichiers)
+    "activityBar.background": "#1E1E1E", // Fond de la barre d'activités (icônes à gauche)
+    // 📝 Éditeur (zone où on écrit le code)
+    "editor.background": "#2c2d2e", // Fond de l'éditeur
+    "editorCursor.foreground": "#ffffff", // Couleur du curseur dans l'éditeur
+    "editor.lineHighlightBackground": "#feaad445", // Fond de la ligne active
+    "editor.selectionBackground": "#ff008055", // Couleur de fond du texte sélectionné
+    "editor.selectionHighlightBackground": "#ff77e86c", // Couleur de surlignage (ex: occurrences similaires)
+    "editor.wordHighlightBackground": "#FFA50055", // Surlignage des occurrences (lecture seule)
+    // 📌 Onglets
+    "tab.activeBackground": "#2c2d2e", // Fond de l'onglet actif
+    "tab.inactiveBackground": "#1E1E1E", // Fond des onglets inactifs
+    "editorGroupHeader.tabsBackground": "#1E1E1E", // Couleur du fond derrière les onglets
+    "tab.border": "#2c2d2e", // Bordure entre les onglets
+    "tab.activeBorderTop": "#f57777", // Bordure du haut de l’onglet actif
+    "tab.activeForeground": "#f6dbdb", // Texte de l’onglet actif
+    "tab.inactiveForeground": "#757575", // Texte des onglets inactifs
+    "tab.unfocusedActiveForeground": "#888888", // Texte de l’onglet actif non sélectionné
+    // 📌 Barre de statut (en bas)
+    "statusBar.background": "#2c2d2e", // Fond de la barre de statut
+    "statusBar.foreground": "#FFFFFF", // Texte de la barre de statut
+    "statusBar.border": "#2c2d2e", // Bordure en haut de la barre de statut
+    "statusBar.noFolderBackground": "#222222", // Couleur quand aucun dossier n'est ouvert
+    "statusBar.debuggingBackground": "#FF0000", // Fond en mode débogage
+    "statusBar.debuggingForeground": "#FFFFFF" // Texte en mode débogage
+}
+,
+    "workbench.fontAliasing": "default",
+    "workbench.activityBar.iconClickBehavior": "toggle",
+    "workbench.activityBar.location": "default"
+}
