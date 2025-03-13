@@ -25,8 +25,7 @@ export function checkForm(formUser) {
     if (isValid) {
         // make the form disappear
         let form = document.getElementById("mainForm")
-        form.reset()
-        form.style.display = "none"
+        form.style.opacity = "0"
 
         // create success div
         let success = document.createElement("div")

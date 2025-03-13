@@ -27,16 +27,12 @@ p {
     padding: 0.5vw;
 }
 
-/*img {
-    padding-right: 1rem;
-}*/
-
 .topnav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow: hidden;
-    margin: 3.5%;
+    position: relative;
+    margin: 3rem;
 }
 
 .header-logo img {
@@ -50,7 +46,6 @@ p {
 }
 
 .topnav a {
-    float: left;
     display: block;
     color: #000000;
     text-align: center;
@@ -90,39 +85,23 @@ p {
         display: none;
     }
 
-    .topnav a.icon {
-        float: right;
+    .topnav .icon {
         display: block;
     }
 
-    .topnav.responsive {
+    .responsive {
         position: relative;
     }
 
-    .topnav.responsive .icon {
+    .responsive .icon {
         position: absolute;
         right: 0;
         top: 0;
     }
 
-    .topnav.responsive a {
-        float: none;
+    .responsive a {
         display: block;
         text-align: left;
-    }
-}
-
-
-
-@media screen and (max-width: 540px) {
-    .topnav a {
-        display: none;
-    }
-
-    .topnav a.icon {
-        float: right;
-        display: block;
-        margin-top: -15px;
     }
 }
 
@@ -130,10 +109,7 @@ main {
     font-size: 130%;
     font-weight: bolder;
     color: black;
-    padding-top: 0.5vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    margin: 1px 20px 15px;
+    padding: 0.5rem 3rem;
     border-radius: 2rem;
     text-align: justify;
 
@@ -211,6 +187,18 @@ main {
 .modal-body {
     padding: 15px 8%;
     margin: 15px auto;
+}
+
+.modal-success {
+    position: relative;
+}
+
+.modal-success .validation {
+    position: absolute;
+    top: -400px;
+    left: 15px;
+    font-size: 22px;
+    margin: 0 auto;
 }
 
 label {
@@ -552,7 +540,7 @@ footer {
     margin: 0 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .hero-section {
         display: block;
         box-shadow: unset;
