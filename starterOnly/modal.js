@@ -1,12 +1,3 @@
-function editNav() {
-    let nav = document.getElementById("myTopnav")
-    if (nav.className === "topnav") {
-        nav.classList.add("responsive")
-    } else {
-        nav.className = "topnav"
-    }
-}
-
 // DOM Elements
 const modalbg = document.querySelector(".bground")
 const formData = document.querySelectorAll(".formData")

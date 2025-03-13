@@ -1,4 +1,4 @@
-import { checkForm } from './fonctions.js'
+import { checkForm } from './formFonctions.js'
 
 // form fields
 const firstnameInput = document.getElementById("first")
