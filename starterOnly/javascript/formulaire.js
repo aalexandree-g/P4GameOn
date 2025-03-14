@@ -9,8 +9,8 @@ const quantityInput = document.getElementById("quantity")
 const conditionsCheckbox = document.getElementById("checkbox1")
 
 // regex
-const nameRegex = /^[a-zA-Z]{2,}(-[a-zA-Z]+)?$/
-const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+const nameRegex = /^([a-zA-ZéèêëàâäçôîÉÈÊËÀÂÄÇÔÎ]+[- ]?[a-zA-ZéèêëàâäçôîÉÈÊËÀÂÄÇÔÎ]+)+$/
+const emailRegex = /^([a-zA-Z0-9]+[._-]?[a-zA-Z0-9]+)+@([a-zA-Z0-9]+[._-]?[a-zA-Z0-9]+)+\.[a-zA-Z]{2,}$/
 const quantityRegex = /^[0-9]+$/
 
 // error messages
