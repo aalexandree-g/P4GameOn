@@ -1,3 +1,25 @@
+// check input with regex
+function inputIsWrong(regex, input) { return (regex && !regex.test(input.value)) }
+
+// check if birthdate is empty
+function birthdateIsEmpty(id, input) { return (id === "birthdate" && input.value === "") }
+
+// check if there is no radio button selected
+function noLocationSelected(input) { return (input === null) }
+
+// check if conditions are accepted
+function conditionsNotAccepted(id, input) { return (id === "checkbox1" && !input.checked) }
+
+// show error message under concerned field
+function errorMessage(fieldId, msgError) {
+    let champ = document.getElementById(fieldId)
+    if (champ) {
+        let elementParent = champ.closest(".formData")
+        elementParent.dataset.error = msgError
+        elementParent.dataset.errorVisible = "true"
+    }
+}
+
 export function checkForm(formUser) {
     // delete error messages if there are already
     document.querySelectorAll("[data-error]").forEach((msg) => {
@@ -15,7 +37,7 @@ export function checkForm(formUser) {
             inputIsWrong(field.regex, field.input) ||
             birthdateIsEmpty(field.id, field.input) ||
             noLocationSelected(field.input) ||
-            conditionsNotAccepted(field.id, field.input)  
+            conditionsNotAccepted(field.id, field.input)
         ) {
             errorMessage(field.id, field.msgError)
             isValid = false
@@ -48,27 +70,5 @@ export function checkForm(formUser) {
         success.appendChild(messageValidation)
         success.appendChild(btnClose)
         document.querySelector(".modal-body").appendChild(success)
-    }
-}
-
-// check input with regex
-function inputIsWrong(regex, input) { return (regex && !regex.test(input.value)) }
-
-// check if birthdate is empty
-function birthdateIsEmpty(id, input) { return (id === "birthdate" && input.value === "") }
-
-// check if there is no radio button selected
-function noLocationSelected(input) { return (input === null) }
-
-// check if conditions are accepted
-function conditionsNotAccepted(id, input) { return (id === "checkbox1" && !input.checked) }
-
-// show error message under concerned field
-function errorMessage(fieldId, msgError) {
-    let champ = document.getElementById(fieldId)
-    if (champ) {
-        let elementParent = champ.closest(".formData")
-        elementParent.dataset.error = msgError
-        elementParent.dataset.errorVisible = "true"
     }
 }

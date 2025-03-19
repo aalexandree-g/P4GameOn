@@ -9,12 +9,12 @@ const quantityInput = document.getElementById("quantity")
 const conditionsCheckbox = document.getElementById("checkbox1")
 
 // regex
-const nameRegex = /^([a-zA-ZéèêëàâäçôîÉÈÊËÀÂÄÇÔÎ]+[- ]?[a-zA-ZéèêëàâäçôîÉÈÊËÀÂÄÇÔÎ]+)+$/
+const nameRegex = /^([a-zA-ZéèêëàâäçôîïÉÈÊËÀÂÄÇÔÎÏ]+[- ]?[a-zA-ZéèêëàâäçôîïÉÈÊËÀÂÄÇÔÎÏ]+)+$/
 const emailRegex = /^([a-zA-Z0-9]+[._-]?[a-zA-Z0-9]+)+@([a-zA-Z0-9]+[._-]?[a-zA-Z0-9]+)+\.[a-zA-Z]{2,}$/
 const quantityRegex = /^[0-9]+$/
 
 // error messages
-const firstnameMessage = "Veuillez entrer 2 lettres ou plus pour le prénom."
+const firstnameMessage = "Veuillez entrer 2 caractères ou plus pour le prénom."
 const lastnameMessage = "Veuillez entrer 2 caractères ou plus pour le nom."
 const emailMessage = "L'adresse email est incorrecte."
 const birthdateMessage = "Veuillez entrer votre date de naissance."
